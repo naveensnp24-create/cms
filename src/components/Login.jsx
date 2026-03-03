@@ -34,10 +34,10 @@ const Login = () => {
   };
   
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-slate-800">
-      <div className="h-110 w-110 flex flex-col rounded-xl bg-slate-400">
-        <h2 className="font-bold text-2xl text-center">{isSignUp ? 'Sign Up' : 'Login'}</h2>
-        <div className="flex flex-col mt-10 mx-4">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-slate-800 px-4">
+      <div className="w-full max-w-md flex flex-col rounded-xl bg-slate-400 p-6">
+        <h2 className="font-bold text-2xl text-center mb-6">{isSignUp ? 'Sign Up' : 'Login'}</h2>
+        <div className="flex flex-col space-y-4">
           {/* name field only for signup */}
           {isSignUp && (
             <div className="flex flex-col font-bold">

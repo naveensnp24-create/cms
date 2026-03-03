@@ -136,7 +136,7 @@ const ContactList = () => {
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="bg-slate-700 text-white border border-slate-600 rounded px-3 py-2 w-48"
+          className="bg-slate-700 text-white border border-slate-600 rounded px-3 py-2 w-full max-w-xs"
         >
           <option value="">All Blood Groups</option>
           {bloodGroups.map((bg) => (
@@ -203,22 +203,22 @@ const ContactList = () => {
                 <p className="text-xl">Phone: {contact.phone}</p>
                 <p className="text-xl">Blood Group: <span className="bg-slate-600 text-white px-2 py-1 rounded text-sm">{contact.bloodGroup}</span></p>
               </div>
-              <div className="flex gap-2 mt-2">
+            <div className="flex flex-wrap gap-2 mt-2">
                 <button
                   onClick={() => handleCall(contact._id)}
-                  className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-slate-500"
+                  className="bg-blue-600 text-white px-3 py-2 rounded hover:bg-slate-500 text-sm flex-1 min-w-[80px]"
                 >
                   Call ({contact.callCount})
                 </button>
                 <button
                   onClick={() => handleEdit(contact)}
-                  className="bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-500"
+                  className="bg-yellow-600 text-white px-3 py-2 rounded hover:bg-yellow-500 text-sm flex-1 min-w-[80px]"
                 >
                   Edit
                 </button>
                 <button
                   onClick={() => handleDelete(contact._id)}
-                  className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-slate-500"
+                  className="bg-blue-600 text-white px-3 py-2 rounded hover:bg-slate-500 text-sm flex-1 min-w-[80px]"
                 >
                   Delete
                 </button>

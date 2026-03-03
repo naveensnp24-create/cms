@@ -65,14 +65,16 @@ const Dashboard = () => {
       <p className="text-sm text-gray-600 mb-6">Data for: {userEmail}</p>
       
       {/* charts section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div className="bg-slate-700 text-white p-4 rounded-lg shadow">
           <h3 className="text-lg font-semibold mb-4">Blood Group Distribution</h3>
-          {bloodGroupStats.length > 0 ? (
-            <Pie data={bloodGroupChartData} />
-          ) : (
-            <p className="text-gray-300">No data available</p>
-          )}
+          <div className="max-w-sm mx-auto">
+            {bloodGroupStats.length > 0 ? (
+              <Pie data={bloodGroupChartData} />
+            ) : (
+              <p className="text-gray-300">No data available</p>
+            )}
+          </div>
         </div>
         
         <div className="bg-slate-700 text-white p-4 rounded-lg shadow">
@@ -90,13 +92,13 @@ const Dashboard = () => {
         <h3 className="text-lg font-semibold mb-4">Recent Calls</h3>
         {recentCalls.length > 0 ? (
           <div className="overflow-x-auto">
-            <table className="w-full">
+            <table className="w-full text-sm">
               <thead>
                 <tr className="border-b">
                   <th className="text-left p-2">Name</th>
                   <th className="text-left p-2">Phone</th>
-                  <th className="text-left p-2">Last Called</th>
-                  <th className="text-left p-2">Total Calls</th>
+                  <th className="text-left p-2 hidden sm:table-cell">Last Called</th>
+                  <th className="text-left p-2">Calls</th>
                 </tr>
               </thead>
               <tbody>
@@ -104,7 +106,7 @@ const Dashboard = () => {
                   <tr key={contact._id} className="border-b">
                     <td className="p-2">{contact.name}</td>
                     <td className="p-2">{contact.phone}</td>
-                    <td className="p-2">{new Date(contact.lastCalled).toLocaleDateString()}</td>
+                    <td className="p-2 hidden sm:table-cell">{new Date(contact.lastCalled).toLocaleDateString()}</td>
                     <td className="p-2">{contact.callCount}</td>
                   </tr>
                 ))}
