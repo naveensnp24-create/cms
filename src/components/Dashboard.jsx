@@ -60,53 +60,53 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-800 text-white p-4 sm:p-6">
-      <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Analytics Dashboard</h2>
-      <p className="text-xs sm:text-sm text-gray-400 mb-4 sm:mb-6 break-all">Data for: {userEmail}</p>
+    <div className="min-h-screen bg-slate-800 text-white p-4 lg:p-6">
+      <h2 className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6">Analytics Dashboard</h2>
+      <p className="text-sm text-gray-400 mb-4 lg:mb-6 break-all">Data for: {userEmail}</p>
       
       {/* charts section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
-        <div className="bg-slate-700 text-white p-3 sm:p-4 rounded-lg shadow">
-          <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Blood Group Distribution</h3>
-          <div className="max-w-xs sm:max-w-sm mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-6 lg:mb-8">
+        <div className="bg-slate-700 text-white p-4 rounded-lg shadow">
+          <h3 className="text-base lg:text-lg font-semibold mb-4">Blood Group Distribution</h3>
+          <div className="max-w-sm mx-auto">
             {bloodGroupStats.length > 0 ? (
               <Pie data={bloodGroupChartData} />
             ) : (
-              <p className="text-gray-300 text-sm">No data available</p>
+              <p className="text-gray-300">No data available</p>
             )}
           </div>
         </div>
         
-        <div className="bg-slate-700 text-white p-3 sm:p-4 rounded-lg shadow">
-          <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Call Frequency</h3>
+        <div className="bg-slate-700 text-white p-4 rounded-lg shadow">
+          <h3 className="text-base lg:text-lg font-semibold mb-4">Call Frequency</h3>
           {callFrequency.length > 0 ? (
             <Bar data={callFrequencyChartData} />
           ) : (
-            <p className="text-gray-300 text-sm">No data available</p>
+            <p className="text-gray-300">No data available</p>
           )}
         </div>
       </div>
 
       {/* recent calls table */}
-      <div className="bg-slate-700 text-white p-3 sm:p-4 rounded-lg shadow">
-        <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Recent Calls</h3>
+      <div className="bg-slate-700 text-white p-4 rounded-lg shadow">
+        <h3 className="text-base lg:text-lg font-semibold mb-4">Recent Calls</h3>
         {recentCalls.length > 0 ? (
           <div className="overflow-x-auto">
-            <table className="w-full text-xs sm:text-sm">
+            <table className="w-full text-xs lg:text-sm">
               <thead>
-                <tr className="border-b border-slate-600">
+                <tr className="border-b">
                   <th className="text-left p-2">Name</th>
                   <th className="text-left p-2">Phone</th>
-                  <th className="text-left p-2 hidden sm:table-cell">Last Called</th>
+                  <th className="text-left p-2 hidden lg:table-cell">Last Called</th>
                   <th className="text-left p-2">Calls</th>
                 </tr>
               </thead>
               <tbody>
                 {recentCalls.map((contact) => (
-                  <tr key={contact._id} className="border-b border-slate-600">
+                  <tr key={contact._id} className="border-b">
                     <td className="p-2 break-words">{contact.name}</td>
                     <td className="p-2 break-all">{contact.phone}</td>
-                    <td className="p-2 hidden sm:table-cell">{new Date(contact.lastCalled).toLocaleDateString()}</td>
+                    <td className="p-2 hidden lg:table-cell">{new Date(contact.lastCalled).toLocaleDateString()}</td>
                     <td className="p-2">{contact.callCount}</td>
                   </tr>
                 ))}
@@ -114,7 +114,7 @@ const Dashboard = () => {
             </table>
           </div>
         ) : (
-          <p className="text-gray-500 text-sm">No recent calls</p>
+          <p className="text-gray-500">No recent calls</p>
         )}
       </div>
     </div>

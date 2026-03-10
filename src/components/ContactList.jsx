@@ -143,7 +143,7 @@ const ContactList = () => {
       {showForm && <div className="bg-slate-700 text-white p-4 rounded-lg shadow-md mb-4">
         <label className="text-xl font-bold block mb-4">{editingContact ? 'Edit Contact' : 'Add New Contact'}</label>
         <form onSubmit={handleSubmit}>
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-medium mb-1">Name:</label>
               <input type="text" value={formData.name}
@@ -165,7 +165,7 @@ const ContactList = () => {
               </select>
             </div>
           </div>
-          <button type="submit" className="mt-4 w-full sm:w-auto bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+          <button type="submit" className="mt-4 w-full lg:w-auto bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
             {editingContact ? 'Update' : 'Save'}
           </button>
         </form>
@@ -179,22 +179,22 @@ const ContactList = () => {
         ) : (
           contacts.map(contact => (
             <div key={contact._id} className="flex flex-col p-4 w-full bg-slate-700 text-white rounded-lg shadow-md">
-              <div className="mb-3">
-                <p className="text-lg sm:text-xl font-bold break-words">Name: {contact.name}</p>
-                <p className="text-lg sm:text-xl break-all">Phone: {contact.phone}</p>
-                <p className="text-lg sm:text-xl">Blood Group: <span className="bg-slate-600 text-white px-2 py-1 rounded text-sm">{contact.bloodGroup}</span></p>
+              <div className="mb-2">
+                <p className="text-base lg:text-xl font-bold break-words">Name: {contact.name}</p>
+                <p className="text-base lg:text-xl break-all">Phone: {contact.phone}</p>
+                <p className="text-base lg:text-xl">Blood Group: <span className="bg-slate-600 text-white px-2 py-1 rounded text-sm">{contact.bloodGroup}</span></p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-2">
+              <div className="flex flex-col lg:flex-row gap-2 mt-2">
                 <button onClick={() => handleCall(contact._id)}
-                  className="bg-blue-600 text-white px-3 py-2 rounded hover:bg-slate-500 text-sm">
+                  className="bg-blue-600 text-white px-3 py-2 rounded hover:bg-slate-500 text-sm lg:flex-1">
                   Call ({contact.callCount})
                 </button>
                 <button onClick={() => handleEdit(contact)}
-                  className="bg-yellow-600 text-white px-3 py-2 rounded hover:bg-yellow-500 text-sm">
+                  className="bg-yellow-600 text-white px-3 py-2 rounded hover:bg-yellow-500 text-sm lg:flex-1">
                   Edit
                 </button>
                 <button onClick={() => handleDelete(contact._id)}
-                  className="bg-blue-600 text-white px-3 py-2 rounded hover:bg-slate-500 text-sm">
+                  className="bg-blue-600 text-white px-3 py-2 rounded hover:bg-slate-500 text-sm lg:flex-1">
                   Delete
                 </button>
               </div>
