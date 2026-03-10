@@ -59,7 +59,7 @@ const Header = ({ onSearch, showAddButton, onAddContact, showForm }) => {
             <a className="text-base md:text-2xl font-bold cursor-pointer" onClick={handleDashboard}>Dashboard</a>
             <a className="text-base md:text-2xl font-bold cursor-pointer" onClick={handleSupport}>Support</a>
             
-            <div className="relative flex-1 min-w-[150px]">
+            <div className="relative w-48 md:w-64">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-gray-400">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg>
