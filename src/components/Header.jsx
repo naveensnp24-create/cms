@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import { toast } from 'react-toastify';
 import { userAPI } from '../services/api';
 import { useState } from 'react';
+import { IoMenuSharp } from "react-icons/io5";
 
 const Header = ({ onSearch, showAddButton, onAddContact, showForm }) => {
     const navigate = useNavigate();
@@ -55,6 +56,7 @@ const Header = ({ onSearch, showAddButton, onAddContact, showForm }) => {
 
     return (
         <div className="flex flex-wrap p-3 md:p-5 w-full gap-2 md:gap-5 bg-blue-500 items-center text-white">
+            <IoMenuSharp className="text-2xl md:text-3xl cursor-pointer" />
             <a className="text-base md:text-2xl font-bold cursor-pointer" onClick={handleAdduser}>Contacts</a>
             <a className="text-base md:text-2xl font-bold cursor-pointer" onClick={handleDashboard}>Dashboard</a>
             <a className="text-base md:text-2xl font-bold cursor-pointer" onClick={handleSupport}>Support</a>
